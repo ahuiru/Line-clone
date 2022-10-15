@@ -15,9 +15,21 @@ export const Line = () => {
   }, [])
 
   return (
-    <div>
-      {console.log(messages)}
-      <SignOut />
-    </div>
+    <>
+      <div>
+        {console.log(messages)}
+        <SignOut />
+      </div>
+      <div className='msgs'>
+        {messages.map(({id, text, photoURL, uid}) => (
+          <div className="message">
+            <div key={id}>
+              <img src={photoURL} alt="" />
+              <p>{text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
