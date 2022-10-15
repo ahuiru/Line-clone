@@ -6,7 +6,7 @@ import { Line } from './components/Line';
 
 
 function App() {
-  const user = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <div className="">
       {user ? <Line/> : <SignIn />}
