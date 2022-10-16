@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { SignOut } from './SignOut'
 import { db } from '../firebase'
+import { SendMessage } from './SendMessage';
 
 export const Line = () => {
   const [messages, setMessages] = useState([]);
@@ -17,12 +18,12 @@ export const Line = () => {
   return (
     <>
       <div>
-        {console.log(messages)}
+        {/* {console.log(messages)} */}
         <SignOut />
       </div>
       <div className='msgs'>
         {messages.map(({id, text, photoURL, uid}) => (
-          <div className="message">
+          <div>
             <div key={id}>
               <img src={photoURL} alt="" />
               <p>{text}</p>
@@ -30,6 +31,7 @@ export const Line = () => {
           </div>
         ))}
       </div>
+      <SendMessage/>
     </>
   )
 }
